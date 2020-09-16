@@ -1,4 +1,5 @@
-        .orig x3000
+https://stackoverflow.com/questions/30386227/lc3-assembly-palindrome-error
+.orig x3000
 
         lea     r2, data
         and     r1, r1, #0
