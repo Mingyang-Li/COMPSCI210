@@ -1,19 +1,35 @@
-https://stackoverflow.com/questions/30386227/lc3-assembly-palindrome-error
 
-c1: https://www.chegg.com/homework-help/questions-and-answers/don-t-need-worry-first-two-parts-m-done-want-know-tell-user-s-input-palindrome-stop-progra-q56113580
-c2: https://www.chegg.com/homework-help/questions-and-answers/following-program-determines-whether-character-palindrome--palindrome-string-reads-backwar-q20369565
+  .ORIG   x3100
+ENTER   LD      R0, ONE         ; Init. 0x3400 to 1
+        STI     R0, C
 
-.orig x3000
+CHECK   LDI     R0, A           ; to check if Mem[A] equals Mem[B] 
+        LDI     R1, B
+        NOT     R2, R1
+        ADD     R2, R2, #1
+        ADD     R3, R2, R0
+        BRz     YES
 
-        lea     r2, data
-        and     r1, r1, #0
-        add     r1, r1, #4
+NO      AND     R4, R4, #0      ; Set 0x3400 to 0 and exit
+        STI     R4, C
+        BRnzp   DONE
 
-next    add     r1, r1, #-1
-        brz     end 
-        in      
-        str     r0, r2, #0
-        add     r2, r2, #1
-        brnzp   next
+YES     LD      R0, A           ; Check if we're done
+        LD      R1, B
+        NOT     R2, R0
+        ADD     R2, R2, R1
+        BRz     DONE
 
-.END
+        ADD     R0, R0, #1      ; not done, move 'pointers'
+        ST      R0, A
+        ADD     R1, R1, #-1
+        ST      R1, B
+        BRnzp   CHECK
+
+DONE    HALT
+CNT     .FILL   x0000
+A       .FILL   x3200
+B       .FILL   x3209
+C       .FILL   x3400
+ONE     .FILL   x0001
+        .END
