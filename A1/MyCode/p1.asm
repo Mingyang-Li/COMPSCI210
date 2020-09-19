@@ -1,6 +1,6 @@
 .ORIG X3000
 
-lea r0,message
+lea r0,myMessage
 puts
 
 ld r3, lf
@@ -12,6 +12,6 @@ brnzp next
 
 end halt
 
-message .stringz "Please enter a string: "
+myMessage .stringz "Please enter a string: "
 lf .fill #-10
 .end
