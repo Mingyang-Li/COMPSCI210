@@ -11,6 +11,7 @@ add r1,r1,#1
 getc
 out
 brnzp next 
+;the above is all of part 1
 
 noc lea r0,number
 puts
