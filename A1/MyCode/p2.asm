@@ -10,7 +10,7 @@ brz noc
 add r1,r1,#1
 getc
 out
-brnzp next
+brnzp next 
 
 noc lea r0,number
 puts
@@ -20,6 +20,7 @@ add r0,r0,r1
 out
 halt
 
+;every 'variable' is defiend here below
 message .stringz "Please enter a string: "
 number .stringz "The number of characters in the input is: "
 lf .fill #-10
