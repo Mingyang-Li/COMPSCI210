@@ -1,18 +1,25 @@
-.ORIG X3000
+.orig x3000
+AND R4, R4, #0 ; load number of characters into r4
+LD R2, negativeCounter; load negative num (currently -10) into r2
+Lea R0, message ; Load message into r0
+puts ; print the message into the console
 
-lea r0,message ; getting message variable and load it into R0
-puts   ;display the message 
-and r1,r1,#0  
+lea R1,string ; Load the address of the input string
 
-ld r3, lf  ; load lf content into r3
-next add r4,r0,r3  ; now starting to loop, we check if the sum of r0 and r3 is equal to 0
-brz noc  ; if it is equal to 0 then we break out of the loop
-add r1,r1,#1  ; if not equal to 0 we add 1 t0 r1 and store it in r1
-getc 
-out
-brnzp next
+NEXT TRAP x20 ; Looping the input to read each char string
+TRAP x21 ; echo the string char being read
+ADD R4, R4, #1 ; Increment the character count by 1
+STR R0,R1,#0 ; Store read character in r0 in address pointed by R1
+ADD R1,R1,#1 ; Increase the string pointer by 1 so that it points at next available location
+ADD R5, R0, R2 ; Check whether the input is a empty character 
+BRz print_count ; If the input is enter character, jump to print_count
+BR NEXT ; if the above doesn't hold then read the next character
 
-message .stringz "Please enter a string: "   ; message variable that displays the prompt
-lf .fill #-10   ;lf is the counter variable to be incremented by 1 during each iteration
-
+message .stringz "Please enter a string: "
+lf .stringz "The number of characters in the input is: "
+True .stringz "\nThe input string is Palindrome"
+False .stringz "\nThe input string is not Palindrome"
+negativeCounter.FILL #-10
+zeroNum .FILL x30
+string .blkw x100
 .END
