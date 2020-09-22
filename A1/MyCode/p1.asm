@@ -19,6 +19,8 @@ ADD R5, R0, R2 ; Check whether the input is a empty character
 BRz print_count ; If the input is enter character, jump to print_count
 BR NEXT ; if the above doesn't hold then read the next character
 
+print_count LEA R0, numCt
+
 userInput .stringz "Please enter a string: "
 numCt .stringz "The number of characters in the input is: "
 True .stringz "\nThe input string is Palindrome"

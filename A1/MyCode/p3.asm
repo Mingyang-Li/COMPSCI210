@@ -20,6 +20,7 @@ BRz print_count ; If the input is enter character, jump to print_count
 BR NEXT ; if the above doesn't hold then read the next character
 
 print_count LEA R0, numCt
+
 TRAP x22 ; Print the string
 LD R3, startNum ; the start is assigned to r3, which is currently 0
 ADD R0, R3, R4 ; R0 stores the number of characters
