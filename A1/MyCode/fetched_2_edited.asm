@@ -45,7 +45,7 @@ BRp Palindrome ; Repeat the process,if first is smaller
 LEA R0, True ; Load the address of the input string
 TRAP x22 ; Print the string
 BR DONE ; Branch to DONE
-FalseT_P
+NOT_P
 LEA R0, False ; Load the address of the input string
 TRAP x22 ; Print the string
 DONE HALT
