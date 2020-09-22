@@ -32,7 +32,7 @@ ADD R2,R2,#-1 ; R2 point to last character of string
 Palindrome
 LDR R3,R1,#0 ; Load a character from start of string
 LDR R4,R2,#0 ; Load a character from end of string
-FalseT R4,R4 ; 2's complement of R4
+False R4,R4 ; 2's complement of R4
 ADD R4,R4,#1
 ADD R5,R3,R4 ; Compare fisrt and last characters
 BRnp FalseT_P ; If both characters are Falset equal, jump to FalseT_P
