@@ -8,16 +8,17 @@ int main(){
     scanf("%s",filename);
     
     //Type your code
-    fgets(filename);
-    fp = fopen(filename, "r");
-    if (fp == NULL)
-        exit(EXIT_FAILURE);
+    FILE* filePointer;
+    int bufferLength = 255;
+    char buffer[bufferLength];
 
-    while ((read = getline(&line, &len, fp)) != -1) {
-        printf("%s", line);
+    filePointer = fopen(filename, "r");
+
+    while(fgets(buffer, bufferLength, filePointer)) {
+        printf("%s", buffer);
     }
-    fclose(fp);
 
+    fclose(filePointer);
 
     return 0;
 }
