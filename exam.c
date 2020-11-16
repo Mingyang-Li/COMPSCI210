@@ -55,3 +55,10 @@ int main()
     printf("z = 0x%04x\n", z);
 }
 
+int main(int argc, char *argv[])
+{
+    printf("argc = %d\n", argc);
+    printf("[1] = %s\n", argv[1]);
+    printf("[2] = %c%c%c\n", *(argv[2] + 2), *argv[3], *argv[2]);
+}
+
