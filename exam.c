@@ -35,3 +35,23 @@ void foo(int *w, int *x, int *y, int *z){
         (*z) ++;
     }
 }
+
+// q25
+include <stdio.h>
+int main()
+{
+    unsigned short w = 0xacd6;
+    unsigned short x = 0x97f3;
+    unsigned short y = 0x210d;
+    unsigned short z = 0x85bd;
+    w = w & pxf00e;
+    x = x ^ 0x736c;
+    y = ~y;
+    z = z | 0xbb41;
+    
+    printf("w = 0x%04x\n", w);
+    printf("x = 0x%04x\n", x);
+    printf("y = 0x%04x\n", y);
+    printf("z = 0x%04x\n", z);
+}
+
