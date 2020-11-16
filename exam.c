@@ -17,3 +17,21 @@ int main()
     printf("a = %a \n", a);
     printf("b = %b \n", *b);
 }
+
+//q23
+#include <stdio.h>
+void foo(int *w, int *x, int *y, int *z);
+int main()
+{
+    int a = 5, b = 4, c = 0, d = 0;
+    foo(&a, &b, &c, &d);
+    printf("a = %d \n", a);
+    printf("b = %d \n d = %d \n", b, d);
+}
+
+void foo(int *w, int *x, int *y, int *z){
+    while (*x > *y){
+        *w *= -- (*x);
+        (*z) ++;
+    }
+}
