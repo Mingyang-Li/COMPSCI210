@@ -44,7 +44,7 @@ int main()
     unsigned short x = 0x97f3;
     unsigned short y = 0x210d;
     unsigned short z = 0x85bd;
-    w = w & pxf00e;
+    w = w & 0xf00e;
     x = x ^ 0x736c;
     y = ~y;
     z = z | 0xbb41;
