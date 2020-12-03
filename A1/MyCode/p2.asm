@@ -1,6 +1,4 @@
-; upi: mli263
-; ID: 439110451
-; name: Mingyang Li
+
 
 .orig x3000
 AND R4, R4, #0 ; load number of characters into r4
